@@ -1,11 +1,16 @@
+double :: Int -> Int
 double x = x + x
 
+factorial :: Int -> Int
 factorial n = product [1..n]
 
+average :: [Int] -> Int
 average ns = sum ns `div` length ns
 
+myLast :: [a] -> a
 myLast xs = head (reverse xs)
 
+removeLast :: [a] -> [a]
 removeLast xs = take (length xs - 1) xs
 
 main = do
