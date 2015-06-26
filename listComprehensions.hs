@@ -23,9 +23,18 @@ perfects :: Int -> [Int]
 perfects n = [x | x <- [1..n], x == sum (init $ factors x)]
     where factors n = [x | x <- [1..n], n `mod` x == 0]
 
+-- write a function that returns the list of all positions of a value
+find :: (Eq a) => a -> [(a, b)] -> [b]
+find k xs = [v | (k', v) <- xs, k' == k]
+
+positions :: Int -> [Int] -> [Int]
+positions x xs = find x (zip xs [0..n])
+    where n = length xs - 1
+
 main = do
     print sum100
     print (replicate 3 True)
     print f
     print (pyths 10)
     print (perfects 500)
+    print (positions 2 [2, 1, 1, 1, 2])
